@@ -1,16 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native';
+import { NavigationContainer, NavigationRouteContext } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import TextInputLogin from './src/screens/components/TextInputLogin';
-import LoginButton from './src/screens/components/LoginButton';
+import HomeScreen from './src/screens/HomeScreen';
+
+const Stack = createNativeStackNavigator();
 
 const App = () => {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRoutName="Login">
+      <Stack.Screen name="Login" component={Login} options={{headerShown: false}}/>
+      <Stack.Screen name="HomeScreen" component={HomeScreen} options={{headerShown: false}}/>
+    </Stack.Navigator>
+    </NavigationContainer>
+  )
+};
 
+
+const Login = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   return (
     <View>
+    
       <View style={{ justifyContent: 'center', alignItems: 'center'}}>
         <Image source={require('./src/screens/foto/logo.jpg')}
         style={{width: 355,height: 250}}
@@ -22,10 +38,25 @@ const App = () => {
       <TextInputLogin state={email} set={setEmail} icon = "envelope" placeholder = 'Masukkan Email' isPassword={false}/>
       <TextInputLogin state={password} set={setPassword} icon = "lock" placeholder = 'Masukkan Password' isPassword={true}/>
 
-      <LoginButton />  
+        <View>
+            <TouchableOpacity style={{backgroundColor: '#039be5', paddingVertical: 14, marginTop: 45, marginHorizontal: 90, borderRadius: 20, elevation: 5}}>
+        <Text style={{color: '#fafafa', textAlign: 'center', fontWeight: 'bold'}} onPress={() => navigation.navigate ('HomeScreen')}> LOGIN </Text>
+      </TouchableOpacity>
+
+      <View style={{marginHorizontal: 20, flexDirection: 'row', marginTop: 30}}>
+        <TouchableOpacity style={{flex: 1}}>
+          <Text style={{fontWeight: 'bold'}}> SignUp </Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={{flex: 1, justifyContent: 'center', alignItems: 'flex-end'}}>
+          <Text style={{fontWeight: 'bold'}}> Forgot Password ? </Text>
+        </TouchableOpacity>
+      </View>
+        </View> 
       
     </View>
-  );
-}
+
+
+  )
+};
 
 export default App;
