@@ -1,48 +1,51 @@
-import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import React, { ImageBackground } from 'react-native';
+import { StyleSheet,Text, View, TouchableOpacity } from 'react-native';
 
-const HomeScreen = () => {
-  const navigation = useNavigation();
 
-  const navigateTo = (screenName) => {
-    navigation.navigate(screenName);
-  };
-
+const HomeScreen = ({navigation}) => {
   return (
-    <View style={styles.container}>
-      <TouchableOpacity style={styles.menuItem} onPress={() => navigateTo('MotorScreen')}>
-        <Text style={styles.menuText}>Motor</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.menuItem} onPress={() => navigateTo('MobilScreen')}>
-        <Text style={styles.menuText}>Mobil</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.menuItem} onPress={() => navigateTo('LokasiScreen')}>
-        <Text style={styles.menuText}>Lokasi</Text>
-      </TouchableOpacity>
-    </View>
-  );
-};
+    <View>
+      <ImageBackground style={{width: 360, height:140}}
+      source={require('./foto/mbl.jpg')}>
+        <Text style={{fontSize: 20, color: '#fafafa', textAlign: 'center'}}>JAUHARI SHOWROOM</Text>
+      </ImageBackground>
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  menuItem: {
-    width: 200,
-    height: 50,
-    backgroundColor: 'lightblue',
-    borderRadius: 10,
-    margin: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  menuText: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-});
+      <ImageBackground style={{width: 360, height:140}}
+      source={require('./foto/mbl.jpg')}>
+        <Text style={{fontSize: 20, color: '#fafafa', textAlign: 'center'}}>JAUHARI SHOWROOM</Text>
+      </ImageBackground>
+
+      <View style={{flexDirection: 'row', marginTop: 30}}>
+      <TouchableOpacity style= {{flex: 1}}
+      onPress={() => navigation.navigate('MobilScreen')}>
+        <Text style={{fontSize: 30, paddingHorizontal: 30}}> MOBIL </Text>
+      </TouchableOpacity>
+        <TouchableOpacity style={{flex: 1, alignItems: 'flex-end'}}
+        onPress={() => navigation.navigate('MotorScreen')}>
+          <Text style={{fontSize: 30, paddingHorizontal: 30}}> MOTOR </Text>
+        </TouchableOpacity>
+      </View>
+
+      <TouchableOpacity style={{marginTop: 20}}
+      onPress={() => navigation.navigate('UserScreen')}>
+        <Text style={{textAlign: 'center', fontSize: 30}}>  USER </Text>
+      </TouchableOpacity>
+
+      <ImageBackground style={{width: 360, height:140, marginTop: 30}}
+      source={require('./foto/mbl.jpg')}>
+        <Text style={{fontSize: 20, color: '#fafafa', textAlign: 'center'}}>JAUHARI SHOWROOM</Text>
+      </ImageBackground>
+
+      <ImageBackground style={{width: 360, height:140}}
+      source={require('./foto/mbl.jpg')}>
+        <Text style={{fontSize: 20, color: '#fafafa', textAlign: 'center'}}>JAUHARI SHOWROOM</Text>
+      </ImageBackground>
+
+
+    </View>
+    
+    
+  );
+}
 
 export default HomeScreen;
