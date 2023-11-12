@@ -1,5 +1,5 @@
 import React, { ImageBackground } from 'react-native';
-import { StyleSheet,Text, View, TouchableOpacity } from 'react-native';
+import {Text, View, TouchableOpacity } from 'react-native';
 
 
 const HomeScreen = ({navigation}) => {
@@ -48,4 +48,4 @@ const HomeScreen = ({navigation}) => {
   );
 }
 
-export default HomeScreen;
+export default HomeScreen

@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { NavigationContainer, NavigationRouteContext } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createStackNavigator } from '@react-navigation/stack';
-import Icon from 'react-native-vector-icons/FontAwesome5';
 import TextInputLogin from './src/screens/components/TextInputLogin';
 import HomeScreen from './src/screens/HomeScreen';
 import MobilScreen from './src/screens/MobilScreen';
