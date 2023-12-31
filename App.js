@@ -34,7 +34,7 @@ const Login = ({ navigation }) => {
     <View>
     
       <View style={{ justifyContent: 'center', alignItems: 'center'}}>
-        <Image source={require('./src/screens/foto/logo.jpg')}
+        <Image source={require('./src/screens/foto/mobil5.webp')}
         style={{width: 355,height: 250}}
         />
         <Text style={{fontSize: 30, fontWeight: 'bold', color: '#212121'}}> JAUHARI SHOWROOM </Text>
